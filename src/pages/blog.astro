@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Main.astro";
+import H1 from "../components/H1.astro";
+import PostList from "../components/PostList.astro";
+
+const posts = await getCollection("posts");
+export const prerender = true
+
+---
+
+<Layout title="Blog | Dilshad Noshad">
+  <Main>
+    <H1 text="Insightful and helpful content curated for you." />
+    <PostList posts={posts} />
+  </Main>
+</Layout>
